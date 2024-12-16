@@ -1,5 +1,5 @@
 import 'package:cui_chat_app/Config/Themes.dart';
-import 'package:cui_chat_app/Pages/SplacePage/SplacePage.dart';
+import 'package:cui_chat_app/Pages/Welcome/WelcomePage.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
       theme: lightTheme,
       darkTheme: darkTheme,
       themeMode: ThemeMode.dark,
-      home: const Splacepage(),
+      home: Welcomepage(),
     );
   }
 }

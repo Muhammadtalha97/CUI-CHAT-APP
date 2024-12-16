@@ -6,7 +6,13 @@ class Splacepage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
+      appBar: AppBar(
+        title: Text(
+          'CUI Chat App',
+          style: Theme.of(context).textTheme.headlineSmall,
+        ),
+      ),
+      body: const Column(
         children: [],
       ),
     );

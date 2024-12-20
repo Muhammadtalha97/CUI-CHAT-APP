@@ -2,6 +2,8 @@ import 'package:cui_chat_app/Config/Images.dart';
 import 'package:cui_chat_app/Config/Strings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:slide_to_act/slide_to_act.dart';
 
 class Welcomefooterbutton extends StatelessWidget {
@@ -13,6 +15,7 @@ class Welcomefooterbutton extends StatelessWidget {
       children: [
         SlideAction(
           onSubmit: () {
+            Get.offAllNamed("/authPage");
             return null;
           },
           text: WelcomePageString.slideToStart,

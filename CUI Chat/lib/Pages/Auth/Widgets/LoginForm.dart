@@ -1,44 +1,54 @@
+import 'package:cui_chat/Controller/AuthController.dart';
 import 'package:cui_chat/Widget/PrimaryButton.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 
 class LoginForm extends StatelessWidget {
   const LoginForm({super.key});
 
   @override
   Widget build(BuildContext context) {
+    TextEditingController email = TextEditingController();
+    TextEditingController password = TextEditingController();
+    AuthController authController = Get.put(AuthController());
     return Column(
       children: [
         const SizedBox(
           height: 20,
         ),
-        const TextField(
-          decoration: InputDecoration(
+        TextField(
+          controller: email,
+          decoration: const InputDecoration(
               hintText: 'Email',
               prefixIcon: Icon(Icons.alternate_email_rounded)),
         ),
         const SizedBox(
           height: 20,
         ),
-        const TextField(
-          decoration: InputDecoration(
+        TextField(
+          controller: password,
+          decoration: const InputDecoration(
               hintText: 'Password', prefixIcon: Icon(Icons.password_outlined)),
         ),
         const SizedBox(
           height: 50,
         ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            PrimaryButton(
-                ontap: () {
-                  Get.offAllNamed('/homePage');
-                },
-                btnName: 'LOGIN',
-                icon: Icons.lock_open_sharp),
-          ],
-        )
+        Obx(
+          () => authController.isLoading.value
+              ? const CircularProgressIndicator()
+              : Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    PrimaryButton(
+                        ontap: () {
+                          authController.login(email.text, password.text);
+                          // Get.offAllNamed('/homePage');
+                        },
+                        btnName: 'LOGIN',
+                        icon: Icons.lock_open_sharp),
+                  ],
+                ),
+        ),
       ],
     );
   }

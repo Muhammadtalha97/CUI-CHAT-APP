@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 var lightTheme = ThemeData();
 var darkTheme = ThemeData(
   brightness: Brightness.dark,
+  appBarTheme: const AppBarTheme(backgroundColor: dContainerColor),
   useMaterial3: true,
   inputDecorationTheme: InputDecorationTheme(
       fillColor: dBackgroundColor,

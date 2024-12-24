@@ -65,4 +65,5 @@ class DefaultFirebaseOptions {
     storageBucket: 'cui-chat-c84b4.firebasestorage.app',
     iosBundleId: 'com.example.cuiChatApp',
   );
+
 }

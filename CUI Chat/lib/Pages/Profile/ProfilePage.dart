@@ -1,19 +1,37 @@
+import 'package:cui_chat/Controller/AuthController.dart';
 import 'package:cui_chat/Pages/Profile/Widget/UserInfo.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});
 
   @override
   Widget build(BuildContext context) {
+    AuthController authController = Get.put(AuthController());
     return Scaffold(
       appBar: AppBar(
         title: const Text('Profile'),
+        actions: [
+          IconButton(
+              onPressed: () {
+                Get.toNamed('/updateProfilePage');
+              },
+              icon: const Icon(Icons.edit))
+        ],
       ),
-      body: const Padding(
-        padding: EdgeInsets.all(10),
+      body: Padding(
+        padding: const EdgeInsets.all(10),
         child: Column(
-          children: [Userinfo()],
+          children: [
+            const Userinfo(),
+            const Spacer(), //work as justify between move item in bottom
+            ElevatedButton(
+                onPressed: () {
+                  authController.logoutUser();
+                },
+                child: const Text('Log Out'))
+          ],
         ),
       ),
     );

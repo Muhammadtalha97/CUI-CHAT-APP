@@ -1,4 +1,5 @@
 import 'package:cui_chat/Controller/AuthController.dart';
+import 'package:cui_chat/Controller/ProfileController.dart';
 import 'package:cui_chat/Pages/Profile/Widget/UserInfo.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -9,6 +10,8 @@ class ProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     AuthController authController = Get.put(AuthController());
+    // ignore: unused_local_variable
+    ProfileController profileController = Get.put(ProfileController());
     return Scaffold(
       appBar: AppBar(
         title: const Text('Profile'),

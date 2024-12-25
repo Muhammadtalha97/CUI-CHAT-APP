@@ -1,5 +1,6 @@
 import 'package:cui_chat/Config/Images.dart';
 import 'package:cui_chat/Config/Strings.dart';
+import 'package:cui_chat/Controller/ProfileController.dart';
 import 'package:cui_chat/Pages/Home/Widgets/ChatLists.dart';
 import 'package:cui_chat/Pages/Home/Widgets/TabBar.dart';
 import 'package:flutter/material.dart';
@@ -16,6 +17,8 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
+     // ignore: unused_local_variable
+     ProfileController profileController = Get.put(ProfileController());
     TabController tabController = TabController(length: 3, vsync: this);
     return Scaffold(
       appBar: AppBar(

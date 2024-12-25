@@ -1,12 +1,15 @@
 import 'package:cui_chat/Config/Images.dart';
+import 'package:cui_chat/Controller/ProfileController.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
 
 class Userinfo extends StatelessWidget {
   const Userinfo({super.key});
 
   @override
   Widget build(BuildContext context) {
+    ProfileController profileController = Get.put(ProfileController());
     return Container(
       padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
@@ -27,19 +30,26 @@ class Userinfo extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text(
-                      "Talha Choudhary",
-                      style: Theme.of(context).textTheme.bodyLarge,
+                    Obx(
+                      () => Text(
+                        // ignore: unnecessary_null_comparison, prefer_if_null_operators
+                        profileController.currentUser.value.name! == null
+                            ? "User"
+                            : profileController.currentUser.value.name!,
+                        style: Theme.of(context).textTheme.bodyLarge,
+                      ),
                     )
                   ],
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text(
-                      "Talha@gmail.com",
-                      style: Theme.of(context).textTheme.labelLarge,
-                    )
+                    Obx(
+                      () => Text(
+                        profileController.currentUser.value.email!,
+                        style: Theme.of(context).textTheme.labelLarge,
+                      ),
+                    ),
                   ],
                 ),
                 const SizedBox(

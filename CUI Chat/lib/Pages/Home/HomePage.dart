@@ -17,8 +17,8 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
-     // ignore: unused_local_variable
-     ProfileController profileController = Get.put(ProfileController());
+    // ignore: unused_local_variable
+    ProfileController profileController = Get.put(ProfileController());
     TabController tabController = TabController(length: 3, vsync: this);
     return Scaffold(
       appBar: AppBar(
@@ -33,7 +33,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
         actions: [
           IconButton(onPressed: () => {}, icon: const Icon(Icons.search)),
           IconButton(
-              onPressed: () => {Get.toNamed('profilePage')},
+              onPressed: () => {Get.toNamed('/profilePage')},
               icon: const Icon(Icons.more_vert))
         ],
         bottom: myTabBar(tabController, context),

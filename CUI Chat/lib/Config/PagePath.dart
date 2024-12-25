@@ -1,8 +1,9 @@
 import 'package:cui_chat/Pages/Auth/AuthPage.dart';
 import 'package:cui_chat/Pages/Chat/ChatPage.dart';
 import 'package:cui_chat/Pages/Home/HomePage.dart';
-import 'package:cui_chat/Pages/Profile/ProfilePage.dart';
-import 'package:cui_chat/Pages/Profile/UpdateProfile.dart';
+import 'package:cui_chat/Pages/ProfilePage/ProfilePage.dart';
+import 'package:cui_chat/Pages/UserProfile/UserProfilePage.dart';
+import 'package:cui_chat/Pages/UserProfile/UserUpdateProfile.dart';
 import 'package:get/get.dart';
 
 var pagePath = [
@@ -19,11 +20,15 @@ var pagePath = [
       page: () => const Chatpage(),
       transition: Transition.rightToLeft),
   GetPage(
-      name: '/profilePage',
-      page: () => const ProfilePage(),
+      name: '/userProfilePage',
+      page: () => const UserProfilePage(),
       transition: Transition.rightToLeft),
   GetPage(
-      name: '/updateProfilePage',
-      page: () => const UpdateProfile(),
+      name: '/userUpdateProfilePage',
+      page: () => const UserUpdateProfile(),
+      transition: Transition.rightToLeft),
+  GetPage(
+      name: '/profilePage',
+      page: () => const ProfilePage(),
       transition: Transition.rightToLeft),
 ];
